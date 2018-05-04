@@ -24,10 +24,7 @@ switch(url) {
 			const element = document.getElementById('chat');
 
 			if(playerBoolean != null) {
-				if(!openChat) {
-					element.setAttribute('class', 'open');
-					openChat = true;
-				} else {
+				if(openChat) {
 					element.removeAttribute('class');
 					openChat = false;
 				}

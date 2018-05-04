@@ -28,3 +28,5 @@ document.getElementById('nav-register').addEventListener('click', function() {
 		loginForm.setAttribute('class', 'not-show');
 	}
 });
+
+function submit() { registerForm.submit(); }
