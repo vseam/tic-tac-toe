@@ -6,6 +6,10 @@
 	"scripts": {
 		"start": "node src/server.js"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vseam/tic-tac-toe.git"
+	},
 	"keywords": [],
 	"author": "Victor Lazaro Palmero",
 	"license": "MIT",
