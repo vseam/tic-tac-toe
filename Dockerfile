@@ -5,5 +5,5 @@ COPY . /src
 
 RUN npm install
 
-COMMAND npm start
+CMD npm start
 EXPOSE 3000
