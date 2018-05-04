@@ -12,10 +12,7 @@ module.exports = (io) => {
 		this.currentPlayer = currentPlayer;
 	}
 
-	var currentDate = new Date();
-	var dateToSave;
-
-	var usersOnline = io.sockets.clients();
+	var usersOnline = 0;
 	var waitingList = new Array();
 	var roomNumber  = 0;
 	var roomsList   = new Array();
@@ -25,9 +22,11 @@ module.exports = (io) => {
 	 */
 	// Detecta cuando un usuario se conecta al juego.
 	io.on('connection', function(socket) {
-		let dateDay = (currentDate.getDate() <= 9) ? '0' + currentDate.getDate() : currentDate.getDate();
-		let months  = ['Ene.', 'Feb.', 'Mar.', 'Abr.', 'May.', 'Jun.', 'Jul.', 'Ago.', 'Sep.', 'Oct.', 'Nov.', 'Dic.'];
-		dateToSave = dateDay + ' ' + months[currentDate.getMonth()];
+		// Genera la fecha actual para guardarla en el historico de partidas.
+		let currentDate = new Date();
+		let dateDay 	= (currentDate.getDate() <= 9) ? '0' + currentDate.getDate() : currentDate.getDate();
+		let months  	= ['Ene.', 'Feb.', 'Mar.', 'Abr.', 'May.', 'Jun.', 'Jul.', 'Ago.', 'Sep.', 'Oct.', 'Nov.', 'Dic.'];
+		let dateToSave  = dateDay + ' ' + months[currentDate.getMonth()];
 
 		// Recibe el evento del cliente de que un usuario se ha conectado al juego.
 		socket.on('joinUser', function(data) {
@@ -35,7 +34,6 @@ module.exports = (io) => {
 			socket.userID   = data.userID;
 			socket.username = data.username;
 
-			console.log(socket.username);
 			// Incrementa el contador de usuarios conectados en este momento.
 			usersOnline++;
 
