@@ -29,4 +29,8 @@ document.getElementById('nav-register').addEventListener('click', function() {
 	}
 });
 
-function submit() { registerForm.submit(); }
+function submit() {
+	if(document.getElementById('password').value == document.getElementById('repeat').value) {
+		registerForm.submit();
+	}
+}
