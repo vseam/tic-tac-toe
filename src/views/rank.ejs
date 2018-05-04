@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<% include partials/head %>
+</head>
+<body>
+	<% include partials/header %>
+
+	<section id="rank" class="separator">
+		<div id="t" class="wrapper">
+			<div id="rank-container">
+				<h2>Tus estadísticas</h2>
+				<table id="stats">
+					<thead>
+						<tr>
+							<th>Pos.</th>
+							<th>Usuario</th>
+							<th>P.G.</th>
+							<th>P.P.</th>
+							<th>ELO</th>
+						</tr>
+					</thead>
+					<tbody id="stats-body"></tbody>
+				</table>
+
+				<h2>Top 20 Global</h2>
+				<table id="ranking">
+					<thead>
+						<tr>
+							<th>Pos.</th>
+							<th>Usuario</th>
+							<th>P.G.</th>
+							<th>P.P.</th>
+							<th>ELO</th>
+						</tr>
+					</thead>
+					<tbody id="rank-body"></tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<input id="username" type="hidden" value="<%= user.username %>">
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/js/menu.js"></script>
+	<script type="text/javascript" src="/js/rank.js"></script>
+</body>
+</html>

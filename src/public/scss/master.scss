@@ -1,0 +1,32 @@
+@import 'utils/fonts.scss',
+        'utils/variables.scss',
+		'utils/reset.scss',
+		'utils/mixins.scss';
+
+body {
+    background-color: #FBFFFF;
+    font: {
+        family: 'Open Sans', sans-serif;
+        size: 16px;
+    }
+}
+
+.separator {
+	padding-bottom: 20vw;
+	@include mQuery(500px) {
+		margin-left: 114px;
+		padding-bottom: 0;
+	}
+}
+
+@import 'components/forms.scss',
+		'components/buttons.scss',
+		'components/alerts.scss',
+		'components/warnings.scss';
+
+@import 'sections/login.scss',
+		'sections/header.scss',
+		'sections/home.scss',
+		'sections/game.scss',
+		'sections/chat.scss',
+		'sections/rank.scss';

@@ -1,0 +1,195 @@
+#home {
+	max-height: calc(100% - 20vw);
+	overflow: auto;
+	padding: 16px 0;
+	@include mQuery(500px) {
+		align-items: center;
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+		max-height: 100vh;
+	}
+	@include mQueryH(676px) { display: block; }
+	.wrapper {
+		padding: 0 16px;
+		width: 100%;
+		@include mQuery(900px) { width: 790px; }
+		@include mQueryH(676px) { margin: 0 auto; }
+		#profile {
+			align-items: center;
+			background-color: $dark-color;
+			border-radius: $br12;
+			display: flex;
+			margin-bottom: 30px;
+			padding: 10px;
+			position: relative;
+			width: 100%;
+			#settings {
+				color: #FFFFFF;
+				cursor: pointer;
+				font-size: 20px;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+			img {
+				border: 2px solid #eee;
+				border-radius: 100%;
+				height: 75px;
+				margin-right: 20px;
+				width: 75px;
+			}
+			h4 {
+				color: $primary-color;
+				font-size: 18px;
+				@include mQuery(900px) { font-size: 20px; }
+			}
+		}
+		#statistics, #last-games {
+			width: 100%;
+			h2 {
+				color: #4f5963;
+				font: {
+					family: $fnt-title;
+					size: 18px;
+					weight: 700;
+				}
+				margin-bottom: 20px;
+				text-transform: uppercase;
+				@include mQuery(900px) { font-size: 24px; }
+			}
+		}
+		#statistics {
+			margin-bottom: 30px;
+			#results {
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 10px;
+				.box {
+					background-color: $dark-color;
+					border-radius: $br12;
+					padding: 14px 0;
+					text-align: center;
+					width: 42vw;
+					@include mQuery(500px) { width: 45%; }
+					p {
+						color: #5D6871;
+						font: {
+							size: 16px;
+							weight: 600;
+						}
+						margin-bottom: 10px;
+						text-transform: uppercase;
+						@include mQuery(900px) { font-size: 18px; }
+					}
+					h3 {
+						color: #FFFFFF;
+						font: {
+							family: $fnt-title;
+							size: 56px;
+							weight: 700;
+						}
+					}
+				}
+			}
+			#ratio, #elo {
+				align-items: center;
+				background-color: $dark-color;
+				border-radius: $br12;
+				display: flex;
+				font: {
+					size: 14px;
+					weight: 600;
+				}
+				justify-content: space-between;
+				margin-bottom: 10px;
+				padding: 10px 25px;
+				@include mQuery(900px) { font-size: 18px; }
+				p {
+					color: #5D6871;
+					text-transform: uppercase;
+				}
+				span {
+					color: #FFFFFF;
+					&.good { color: $light-green !important; }
+					&.bad { color: $light-red !important; }
+				}
+			}
+		}
+		#last-games {
+			#not-found {
+				background-color: $dark-color;
+				border-radius: $br12;
+				color: $light-red;
+				font: {
+					size: 14px;
+					weight: 600;
+				}
+				padding: 10px 25px;
+				@include mQuery(900px) { font-size: 16px; }
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				&.hidden { display: none; }
+				thead {
+					text-align: left;
+					tr {
+						color: #99A8B4;
+						font: {
+							size: 14px;
+							weight: 600;
+						}
+						text-transform: uppercase;
+						@include mQuery(900px) { font-size: 16px; }
+						th {
+							padding-bottom: 10px;
+							&:first-child {
+								padding-left: 25px;
+								width: 95px;
+								@include mQuery(600px) { width: 120px; }
+								@include mQuery(900px) { width: 160px; }
+							}
+							&:last-child {
+								padding-right: 25px;
+								width: 108px;
+								@include mQuery(900px) { width: 140px; }
+							}
+						}
+					}
+				}
+				tbody {
+					tr {
+						background-color: $dark-color;
+						td {
+							color: #5D6871;
+							font: {
+								size: 14px;
+								weight: 600;
+							}
+							padding: 10px 0;
+							@include mQuery(900px) { font-size: 18px; }
+							&:first-child { padding-left: 25px; }
+							&:nth-child(2) { color: #FFFFFF; }
+							&:last-child {
+								padding-right: 25px;
+								text-transform: uppercase;
+							}
+							&.won { color: $light-green !important; }
+							&.lost { color: $light-red !important; }
+						}
+						&:first-child td {
+							&:first-child { border-top-left-radius: $br12; }
+							&:last-child { border-top-right-radius: $br12; }
+						}
+						&:last-child td {
+							&:first-child { border-bottom-left-radius: $br12; }
+							&:last-child { border-bottom-right-radius: $br12; }
+						}
+					}
+				}
+			}
+		}
+	}
+}

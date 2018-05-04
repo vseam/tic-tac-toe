@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<% include partials/head %>
+</head>
+<body>
+	<section id="login">
+		<% if(errorMessageLogin.length > 0) { %>
+			<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> <%= errorMessageLogin %></div>
+		<% } else if(errorMessageRegister.length > 0) { %>
+			<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> <%= errorMessageRegister %></div>
+		<% } %>
+
+		<div id="animation">
+			<video type="video/mp4" src="/videos/animation.mp4" autoplay loop></video>
+		</div>
+
+		<div class="container">
+			<h1 id="logotype">Tic Tac Toe</h1>
+
+			<div id="forms">
+				<nav>
+					<ul>
+						<li class="selected"><span id="nav-login">Login</span></li>
+						<li><span id="nav-register">Registro</span></li>
+					</ul>
+				</nav>
+
+				<form id="form-login" method="post" action="/login">
+					<input class="form-control" type="text" name="username" placeholder="Usuario" tabindex="1" autofocus="autofocus">
+					<input class="form-control" type="password" name="password" placeholder="Contraseña" tabindex="2">
+					<input class="btn btn-primary btn-full" type="submit" value="Entrar" tabindex="3">
+				</form>
+				<form id="form-register" class="not-show" method="post" action="/register">
+					<input class="form-control" type="text" name="username" placeholder="Usuario" tabindex="1">
+					<input class="form-control" type="password" name="password" placeholder="Contraseña" tabindex="3">
+					<input class="btn btn-primary btn-full" type="submit" value="Registrarme" tabindex="4">
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/js/login.js"></script>
+</body>
+</html>

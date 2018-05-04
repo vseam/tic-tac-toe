@@ -1,0 +1,23 @@
+<header>
+	<nav>
+		<ul>
+			<li id="nav-home" <% if(pageName == 'home') { %> class="active" <% } %>>
+				<i class="fas fa-home"></i>
+				<span>Inicio</span>
+			</li>
+			<li id="nav-game" <% if(pageName == 'game') { %> class="active" <% } %>>
+				<i class="fas fa-gamepad"></i>
+				<span>Partida</span>
+			</li>
+			<li id="nav-chat">
+				<i class="fas fa-comments"></i>
+				<span id="new-message">Chat</span>
+			</li>
+			<li id="nav-rank" <% if(pageName == 'rank') { %> class="active" <% } %>>
+				<i class="fas fa-trophy"></i>
+				<span>Ranking</span>
+			</li>
+			<li><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+		</ul>
+	</nav>
+</header>

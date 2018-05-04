@@ -1,0 +1,29 @@
+.btn {
+    border: none;
+    border-radius: $br4;
+    cursor: pointer;
+    font: {
+        size: 14px;
+        weight: 600;
+	}
+    padding: 12px 20px;
+	transition: $trs;
+	@include mQuery(584px) {
+		font-size: 18px;
+		padding: 14px 30px;
+	}
+}
+
+.btn-grey {
+	background-color: #C1C1C1;
+	color: #FFFFFF;
+	&:hover { background-color: darken(#C1C1C1, 10%); }
+}
+
+.btn-primary {
+	background-color: $primary-color;
+	color: #FFFFFF;
+	&:hover { background-color: darken($primary-color, 10%); }
+}
+
+.btn-full { width: 100%; }

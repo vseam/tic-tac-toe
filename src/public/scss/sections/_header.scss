@@ -1,0 +1,91 @@
+header {
+	background-color: $dark-color;
+	position: fixed;
+	top: auto;
+	bottom: 0;
+	height: 20vw;
+	width: 100%;
+	z-index: 10;
+	@include mQuery(500px) {
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 114px;
+	}
+	nav ul {
+		list-style: none;
+		padding-top: 0;
+		transition: $trs;
+		@include mQuery(500px) { padding-top: 114px; }
+		@include mQueryH(676px) { padding-top: 0; }
+		li {
+			border-top: 4px solid transparent;
+			color: #A5B5C1;
+			cursor: pointer;
+			display: block;
+			float: left;
+			padding: calc((20vw - 43px) / 2) 0;
+			text-align: center;
+			transition: $trs;
+			width: 20vw;
+			@include mQuery(412px) { padding: calc((20vw - 47px) / 2) 0; }
+			@include mQuery(500px) {
+				border-left: 4px solid transparent;
+				border-top: none;
+				display: block;
+				float: none;
+				padding: 28px 0;
+				width: auto;
+			}
+			&.active {
+				background-color: lighten($dark-color, 4%);
+				border-color: $primary-color;
+				color: #FFFFFF;
+			}
+			i {
+				display: block;
+				font-size: 22px;
+				margin-bottom: 4px;
+				@include mQuery(412px) {
+					font-size: 25px;
+					margin-bottom: 8px;
+				}
+				@include mQuery(500px) {
+					font-size: 34px;
+					margin-bottom: 10px;
+				}
+			}
+			span {
+				display: block;
+				font: {
+					size: 13px;
+					weight: 700;
+				}
+				text-transform: uppercase;
+				@include mQuery(412px) { font-size: 14px; }
+			}
+			&:hover { color: lighten(#A5B5C1, 15%); }
+			&:last-child {
+				width: 20vw;
+				@include mQuery(500px) {
+					bottom: 0;
+					position: absolute;
+					width: 114px;
+				}
+				a {
+					color: #A5B5C1;
+					display: block;
+					height: 100%;
+					padding: 8px 0;
+					transition: $trs;
+					width: 100%;
+					i {
+						margin-bottom: 0;
+						@include mQuery(500px) { padding: 0; }
+					}
+					&:hover { color: lighten(#A5B5C1, 15%); }
+				}
+			}
+		}
+	}
+}

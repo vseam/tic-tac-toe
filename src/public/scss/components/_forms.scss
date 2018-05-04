@@ -1,0 +1,20 @@
+.form-control {
+	background: {
+		color: #5D6871;
+		position: 16px center;
+		repeat: no-repeat;
+		size: 16px;
+	}
+	border: none;
+	border-radius: $br4;
+	color: #B7BBBB;
+	font-weight: 600;
+	margin-bottom: 10px;
+	padding: 11px 44px;
+	transition: $trs;
+	width: 100%;
+	&::placeholder { color: #B7BBBB; }
+	&:focus { background-color: darken(#5D6871, 5%); }
+	&[name=username] { background-image: url('../images/svg/user.svg'); }
+	&[name=password] { background-image: url('../images/svg/unlock.svg'); }
+}

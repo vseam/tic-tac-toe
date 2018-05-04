@@ -1,0 +1,11 @@
+@mixin mQuery($width) {
+	@media screen and(min-width: $width) {
+        @content;
+    }
+}
+
+@mixin mQueryH($height) {
+	@media screen and(max-height: $height) {
+        @content;
+    }
+}

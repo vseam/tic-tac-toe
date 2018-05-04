@@ -1,0 +1,84 @@
+#login {
+	background-color: #F6FBFB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 0 16px;
+	transition: $trs;
+	width: 100%;
+	@include mQuery(1000px) {
+		padding: 0 30px;
+		justify-content: space-between;
+	}
+	@include mQuery(1100px) { padding: 0 80px; }
+	@include mQuery(1370px) { padding: 0 114px; }
+	h1 {
+		color: #303841;
+		text-transform: uppercase;
+		font-size: 40px;
+		text-align: center;
+		font-weight: 800;
+		font-family: $fnt-title;
+		margin-bottom: 30px;
+		@include mQuery(1000px) { display: none; }
+	}
+	#animation {
+		display: none;
+		@include mQuery(1000px) { display: block; }
+		video {
+			transition: $trs;
+			opacity: 0.5;
+			width: 420px;
+			@include mQuery(1250px) { width: 520px; }
+			@include mQuery(1370px) { width: 620px; }
+			@include mQuery(1500px) { width: 720px; }
+		}
+	}
+	#forms {
+		background-color: #363E47;
+		border-radius: $br12;
+		width: 100%;
+		max-width: 434px;
+		nav {
+			background-color: #303841;
+			border-radius: $br12;
+			overflow: hidden;
+			ul {
+				list-style: none;
+				overflow: hidden;
+				li {
+					color: #A5B5C1;
+					float: left;
+					text-align: center;
+					width: 50%;
+					span {
+						cursor: pointer;
+						display: block;
+						font: {
+							family: $fnt-title;
+							size: 18px;
+							weight: 700;
+						}
+						padding: 18px 0;
+						text-transform: uppercase;
+						transition: $trs;
+						&:hover { color: $primary-color; }
+					}
+					&:nth-child(1) { border-top-left-radius: $br12; }
+					&:nth-child(2) { border-top-right-radius: $br12; }
+					&.selected {
+						background-color: #363E47;
+						span { color: #FFFFFF !important; }
+					}
+				}
+			}
+		}
+		form {
+			padding: 35px;
+			transition: $trs;
+			.btn { margin-top: 30px; }
+			&.not-show { display: none !important; }
+		}
+	}
+}

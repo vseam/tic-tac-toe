@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	outline: none;
+	padding: 0;
+	z-index: 2;
+}
+
+:before, :after {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	line-height: 1;
+}
+
+a {
+	text-decoration: none;
+}
+
+input, textarea {
+	font: {
+		family: inherit;
+		size: inherit;
+	}
+}

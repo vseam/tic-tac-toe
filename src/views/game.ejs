@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<% include partials/head %>
+</head>
+<body>
+	<% include partials/header %>
+
+	<section id="chat">
+		<div id="messages"></div>
+		<form id="form" action="#">
+			<input id="message" type="text" placeholder="Escribe algo para enviar...">
+			<button id="send"><i class="fas fa-paper-plane"></i></button>
+		</form>
+	</section>
+
+	<section id="game" class="separator">
+		<div id="alerts">
+			<div id="waiting" class="warn" style="opacity: 1;"><p>Esperando a que otro jugador se conecte</p></div>
+		</div>
+
+		<div class="wrapper">
+			<span id="opponent" class="hidden"></span>
+
+			<div id="board">
+				<div id="0" class="square"></div>
+				<div id="1" class="square"></div>
+				<div id="2" class="square"></div>
+				<div id="3" class="square"></div>
+				<div id="4" class="square"></div>
+				<div id="5" class="square"></div>
+				<div id="6" class="square"></div>
+				<div id="7" class="square"></div>
+				<div id="8" class="square"></div>
+			</div>
+		</div>
+	</section>
+
+	<input id="user-id" type="hidden" value="<%= user.id %>">
+	<input id="username" type="hidden" value="<%= user.username %>">
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/js/menu.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/js/controller.js"></script>
+</body>
+</html>

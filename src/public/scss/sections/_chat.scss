@@ -1,0 +1,75 @@
+#chat {
+	background-color: #F2F7F7;
+	height: calc(100% - 20vw);
+	left: -100%;
+	position: absolute;
+	transition: $trs;
+	width: 100%;
+	z-index: 8;
+	@include mQuery(500px) {
+		height: 100%;
+		width: calc(100% - 114px);
+	}
+	#messages {
+		height: calc(100% - 64px);
+		overflow-y: scroll;
+		padding: 16px 16px 8px 16px;
+		@include mQuery(500px) { padding: 58px 58px 20px 58px; }
+		.msg {
+			border-radius: $br12;
+			color: #FFFFFF;
+			clear: both;
+			font: {
+				size: 16px;
+				weight: 600;
+			}
+			margin-bottom: 20px;
+			max-width: 80%;
+			padding: 16px 35px;
+			&.left { float: left; }
+			&.right { float: right; }
+			&.green { background-color: $light-green; }
+			&.red { background-color: $light-red; }
+		}
+	}
+	form {
+		align-items: center;
+		background-color: #ECF2F2;
+		bottom: 0;
+		display: flex;
+		justify-content: space-between;
+		left: 0;
+		padding: 0 16px;
+		position: absolute;
+		width: 100%;
+		@include mQuery(600px) { padding: 0 58px; }
+		#message {
+			background-color: transparent;
+			border: none;
+			color: #9EA3A7;
+			font: {
+				size: 16px;
+				weight: 600;
+			}
+			padding: 15px 0;
+			width: calc(100% - 52px);
+			&::placeholder { color: #B3B9BE; }
+			@include mQuery(500px) {
+				font-size: 18px;
+				padding: 20px 0;
+			}
+		}
+		#send {
+			background-color: transparent;
+			border: none;
+			color: $primary-color;
+			cursor: pointer;
+			font-size: 20px;
+			@include mQuery(500px) { font-size: 32px; }
+		}
+	}
+	&.open {
+		left: 0px;
+		@include mQuery(500px) { left: 114px; }
+	}
+}

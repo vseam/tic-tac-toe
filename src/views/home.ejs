@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<% include partials/head %>
+</head>
+<body>
+	<% include partials/header %>
+
+	<section id="home" class="separator">
+		<div class="wrapper">
+			<div id="profile">
+				<i id="settings" class="fas fa-cogs"></i>
+				<img src="/images/avatar.jpg" alt="">
+				<h4><%= user.username %></h4>
+			</div>
+
+			<div id="statistics">
+				<h2>Tus estadísticas</h2>
+
+				<div id="results">
+					<div class="box">
+						<p>P. Ganadas</p>
+						<h3 id="won-games"><%= user.wonGames %></h3>
+					</div>
+					<div class="box">
+						<p>P. Perdidas</p>
+						<h3 id="lost-games"><%= user.lostGames %></h3>
+					</div>
+				</div>
+
+				<div id="ratio">
+					<p>Ratio G/P</p>
+					<span id="calc">0</span>
+				</div>
+
+				<div id="elo">
+					<p>Puntos de ELO</p>
+					<span><%= user.eloPoints %></span>
+				</div>
+			</div>
+
+			<div id="last-games">
+				<h2>Últimas partidas</h2>
+
+				<p id="not-found">No se han encontrado partidas recientes</p>
+				<table id="matches" class="hidden">
+					<thead>
+						<tr>
+							<th>Fecha</th>
+							<th>Usuario</th>
+							<th>Resultado</th>
+						</tr>
+					</thead>
+					<tbody id="matches-body"></tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<input id="user-id" type="hidden" value="<%= user.id %>">
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/js/menu.js"></script>
+	<script type="text/javascript" src="/js/home.js"></script>
+</body>
+</html>

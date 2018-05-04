@@ -1,0 +1,105 @@
+#rank {
+	display: block;
+	height: 100%;
+	max-height: calc(100% - 20vw);
+	padding: 16px 0;
+	overflow: auto;
+	@include mQuery(500px) {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		max-height: 100%;
+		padding: 0;
+	}
+	.wrapper {
+		padding: 0 16px;
+		width: 100%;
+		@include mQuery(900px) { width: 790px; }
+		#rank-container {
+			width: 100%;
+			h2 {
+				color: #4F5963;
+				font: {
+					family: $fnt-title;
+					size: 18px;
+					weight: 700;
+				}
+				text-transform: uppercase;
+				margin-bottom: 20px;
+				@include mQuery(900px) { font-size: 24px; }
+			}
+			#stats { margin-bottom: 30px; }
+			#stats, #ranking {
+				border-collapse: collapse;
+				width: 100%;
+				thead {
+					text-align: left;
+					tr {
+						color: #99A8B4;
+						font: {
+							size: 14px;
+							weight: 600;
+						}
+						text-transform: uppercase;
+						@include mQuery(900px) { font-size: 16px; }
+						th {
+							padding-bottom: 10px;
+							&:first-child {
+								padding-left: 25px;
+								width: 100px;
+								@include mQuery(420px) { width: 149px; }
+							}
+							&:nth-child(2) { width: 333px; }
+							&:nth-child(3) { width: 90px; }
+							&:nth-child(4) { width: 90px; }
+							&:last-child {
+								padding-right: 25px;
+								width: 96px;
+							}
+						}
+					}
+				}
+				tbody {
+					tr {
+						background-color: $dark-color;
+						td {
+							color: #5D6871;
+							font: {
+								size: 14px;
+								weight: 600;
+							}
+							padding: 10px 0;
+							@include mQuery(900px) { font-size: 18px; }
+							&:first-child { padding-left: 25px; }
+							&:nth-child(2) { color: #FFFFFF; }
+							&:last-child {
+								color: #FFFFFF;
+								padding-right: 25px;
+								text-transform: uppercase;
+							}
+							i {
+								font-size: 12px;
+								margin-right: 6px;
+								@include mQuery(900px) {
+									font-size: 16px;
+									margin-right: 13px;
+								}
+								&.trophy-gold { color: #E0D01B; }
+								&.trophy-silver { color: #CACACA; }
+								&.trophy-bronze { color: #9D7336; }
+							}
+						}
+						&:first-child td {
+							&:first-child { border-top-left-radius: $br12; }
+							&:last-child { border-top-right-radius: $br12; }
+						}
+						&:last-child td {
+							&:first-child { border-bottom-left-radius: $br12; }
+							&:last-child { border-bottom-right-radius: $br12; }
+						}
+					}
+				}
+			}
+		}
+	}
+}
