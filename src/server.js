@@ -14,6 +14,7 @@ const io           = require('socket.io')(server);
 // Conexión con la base de datos MongoDB.
 const { urlDB }    = require('./config/database');
 mongoose.connect(urlDB);
+mongoose.connection.on('error', () => mongoose.connect(urlDB));
 
 // Configuración del puerto en el que escucha el servidor.
 app.set('port', process.env.PORT || 3000);
