@@ -15,7 +15,6 @@
 	width: 100%;
 	&::placeholder { color: #B7BBBB; }
 	&:focus { background-color: darken(#5D6871, 5%); }
-	&:-webkit-autofill { -webkit-text-fill-color: #5D6871; }
 	&[name=username] { background-image: url('../images/svg/user.svg'); }
 	&[type=password] { background-image: url('../images/svg/unlock.svg'); }
 }

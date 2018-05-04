@@ -74,11 +74,17 @@
 				}
 			}
 		}
+		#errors {
+			padding: 0 20px;
+			transition: $trs;
+			@include mQuery(400px) { padding: 0 35px; }
+		}
 		form {
-			padding: 35px;
+			padding: 20px;
 			transition: $trs;
 			.btn { margin-top: 30px; }
 			&.not-show { display: none !important; }
+			@include mQuery(400px) { padding: 20px 35px 35px 35px; }
 		}
 	}
 }

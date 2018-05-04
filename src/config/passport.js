@@ -25,7 +25,7 @@ module.exports = function(passport) {
 
 			// Comprueba si el usuario existe y si la contraseña es válida, sino le envía un error a la plantilla.
 			if(!user || !user.validatePassword(password)) {
-				return done(null, false, req.flash('errorMessageLogin', 'Los datos introducidos no son validos.'));
+				return done(null, false, req.flash('errorMessageLogin', 'Los datos introducidos no son validos'));
 			}
 			return done(null, user);
 		})
@@ -44,7 +44,7 @@ module.exports = function(passport) {
 
 			// Comprueba si el usuario existe, en caso de encontrarlo, le envía un error a la plantilla.
 			if(user) {
-				return done(null, false, req.flash('errorMessageRegister', 'El nombre de usuario ya está en uso.'));
+				return done(null, false, req.flash('errorMessageRegister', 'El nombre de usuario ya está en uso'));
 			} else {
 				// Crea el nuevo usuario con la información del formulario.
 				let newUser = new User();

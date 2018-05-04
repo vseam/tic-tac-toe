@@ -15,7 +15,7 @@ module.exports = (io) => {
 	var currentDate = new Date();
 	var dateToSave;
 
-	var usersOnline = 0;
+	var usersOnline = io.sockets.clients();
 	var waitingList = new Array();
 	var roomNumber  = 0;
 	var roomsList   = new Array();
@@ -35,6 +35,7 @@ module.exports = (io) => {
 			socket.userID   = data.userID;
 			socket.username = data.username;
 
+			console.log(socket.username);
 			// Incrementa el contador de usuarios conectados en este momento.
 			usersOnline++;
 
