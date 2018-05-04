@@ -16,5 +16,5 @@
 	&::placeholder { color: #B7BBBB; }
 	&:focus { background-color: darken(#5D6871, 5%); }
 	&[name=username] { background-image: url('../images/svg/user.svg'); }
-	&[name=password] { background-image: url('../images/svg/unlock.svg'); }
+	&[type=password] { background-image: url('../images/svg/unlock.svg'); }
 }
