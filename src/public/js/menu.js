@@ -20,6 +20,20 @@ switch(url) {
 			}
 		});
 
+		document.getElementById('nav-game').addEventListener('click', function() {
+			const element = document.getElementById('chat');
+
+			if(playerBoolean != null) {
+				if(!openChat) {
+					element.setAttribute('class', 'open');
+					openChat = true;
+				} else {
+					element.removeAttribute('class');
+					openChat = false;
+				}
+			}
+		});
+
 		document.getElementById('nav-chat').addEventListener('click', function() {
 			const element = document.getElementById('chat');
 			const alert   = document.getElementById('new-message');

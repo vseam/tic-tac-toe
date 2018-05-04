@@ -5,7 +5,9 @@ const wonGames  = document.getElementById('won-games').innerText;
 const lostGames = document.getElementById('lost-games').innerText;
 const calc 		= document.getElementById('calc');
 
-if(wonGames >= 1 && lostGames == 0) {
+if(wonGames == 0 && lostGames == 0) {
+	calc.innerText = '0';
+} else if(wonGames >= 1 && lostGames == 0) {
 	calc.innerText = 'All';
 	calc.setAttribute('class', 'good');
 } else if(wonGames == 0 && lostGames >= 1) {
