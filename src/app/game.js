@@ -42,7 +42,7 @@ module.exports = (io) => {
 			console.log('A user has connected. (Room: ' + roomNumber + ') - ' + '[' + usersOnline + ']');
 
 			// Comprueba si hay más de dos jugadores en la lista de espera.
-			if(waitingList.length >= 2) {
+			if(waitingList.length >= 2 && waitingList[0].username != waitingList[1].username) {
 				var currentPlayer = null;
 
 				// Asigna la sala de juego a los dos primeros usuarios de la lista de espera.
@@ -71,6 +71,11 @@ module.exports = (io) => {
 
 				// Incrementa el número de las salas de juego.
 				roomNumber++;
+			} else if(waitingList[0].username == waitingList[1].username) {
+				// Elimina al jugador duplicado de la lista de espera.
+				waitingList.splice(1, 1);
+				// Decrementa el contador de usuarios conectados en este momento.
+				usersOnline--;
 			}
 		});
 
