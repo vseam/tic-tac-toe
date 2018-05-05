@@ -75,7 +75,7 @@ module.exports = (io) => {
 				// Elimina al jugador duplicado de la lista de espera.
 				waitingList.splice(1, 1);
 				// Decrementa el contador de usuarios conectados en este momento.
-				usersOnline--;
+				// usersOnline--;
 			}
 		});
 
