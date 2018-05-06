@@ -53,6 +53,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Configuración del sistema de las partidas de la aplicación.
 require('./app/game')(io);
 
+// Captura los errores de rutas que no existen.
+app.use((req, res, next) => {
+	res.status(404).render('error');
+	next();
+});
+
 // Ejecuta el servidor en el puerto asignado.
 server.listen(app.get('port'), () => {
     console.log('Server running. Listening in the port *:', app.get('port'));

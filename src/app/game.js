@@ -74,8 +74,6 @@ module.exports = (io) => {
 			} else if(waitingList.length >= 2 && waitingList[0].username == waitingList[1].username) {
 				// Elimina al jugador duplicado de la lista de espera.
 				waitingList.splice(1, 1);
-				// Decrementa el contador de usuarios conectados en este momento.
-				// usersOnline--;
 			}
 		});
 

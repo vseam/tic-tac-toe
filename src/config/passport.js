@@ -49,8 +49,9 @@ module.exports = function(passport) {
 				// Crea el nuevo usuario con la información del formulario.
 				let newUser = new User();
 
-				newUser.username  = username;
-				newUser.password  = newUser.generateHash(password);
+				newUser.username = username;
+				newUser.password = newUser.generateHash(password);
+				newUser.avatar   = 'default-' + Math.floor(Math.random() * 2) + '.jpg';
 
 				// Guarda en la base de datos la información del nuevo usuario.
 				newUser.save(function(error) {

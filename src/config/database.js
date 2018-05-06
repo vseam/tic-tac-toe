@@ -1,3 +1,3 @@
 module.exports = {
-	'urlDB': 'mongodb://db/tictactoe'
+	'urlDB': 'mongodb://localhost/tictactoe'
 }

@@ -45,11 +45,13 @@
 				margin: 4px;
 				transition: all 0.2s ease-in-out;
 				width: calc((100% - 24px) / 3);
-				&:hover { background-color: darken(#E6F8FA, 8%); }
 				@include mQuery(716px) {
 					height: 188px;
 					margin: 6px;
 					width: 188px;
+				}
+				&:hover {
+					@include mQuery(500px) { background-color: darken(#E6F8FA, 8%); }
 				}
 			}
 		}

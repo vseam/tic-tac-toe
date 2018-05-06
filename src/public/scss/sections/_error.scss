@@ -1,0 +1,31 @@
+#not-found {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	div {
+		color: #F88686;
+		text-align: center;
+		i {
+			font-size: 60px;
+			margin-bottom: 24px;
+		}
+		h1 {
+			color: #575757;
+			font: {
+				family: $fnt-title;
+				size: 24px;
+				weight: 700;
+			}
+			margin-bottom: 26px;
+		}
+		p {
+			color: #7C7C7C;
+			font: {
+				size: 14px;
+				weight: 600;
+			}
+			margin-bottom: 20px;
+		}
+	}
+}

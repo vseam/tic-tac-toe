@@ -5,6 +5,7 @@ const bcrypt   = require('bcrypt-nodejs');
 const userSchema = new mongoose.Schema({
 	username:  String,
 	password:  String,
+	avatar:	   String,
 	wonGames:  { type: Number, default: 0 },
 	lostGames: { type: Number, default: 0 },
 	eloPoints: { type: Number, default: 0 }
