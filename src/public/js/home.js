@@ -41,11 +41,10 @@ btnSettings.addEventListener('click', function() {
 	btnAvatar.setAttribute('class', 'btn btn-primary btn-full btn-mg');
 	btnAvatar.appendChild(document.createTextNode('Cambiar avatar'));
 	avatarInput.addEventListener('change', function() {
-		console.log(avatarInput.files[0].size);
 		if(avatarInput.files[0].size <= 8388608) {
 			avatarForm.submit();
 		} else {
-			console.log('muy grande puta');
+			// Alert error.
 		}
 	});
 	avatarForm.appendChild(btnAvatar);

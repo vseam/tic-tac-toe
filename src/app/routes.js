@@ -69,6 +69,7 @@ module.exports = (app, passport, multipart, fs) => {
 		const User = require('../app/models/user');
 
 		if(req.files) {
+			console.log(req.files);
 			let filePath  = req.files.avatar.path;
 			let fileSplit = filePath.split('/');
 			let fileName  = fileSplit[5];
