@@ -68,7 +68,7 @@ module.exports = (app, passport, multipart, fs) => {
 	app.post('/user/avatar/:id', multipart({ uploadDir: './src/public/images/avatars/uploads' }), (req, res) => {
 		const User = require('../app/models/user');
 
-		if(req.files) {
+		if(req.files && req.files.avatar.size <= 8388608) {
 			console.log(req.files);
 			let filePath  = req.files.avatar.path;
 			let fileSplit = filePath.split('/');
