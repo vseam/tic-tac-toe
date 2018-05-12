@@ -70,13 +70,13 @@ module.exports = (app, passport, multipart, fs) => {
 
 		if(req.files) {
 			let filePath  = req.files.avatar.path;
+			console.log(filePath);
 			let fileSplit = filePath.split('\\');
 			let fileName  = fileSplit[5];
 
 			let extSplit = fileName.split('\.');
 			let fileExt  = extSplit[1];
 
-			console.log(filePath);
 			if(fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'png') {
 				User.findOne(
 					{ _id: req.params.id },
