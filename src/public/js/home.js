@@ -41,7 +41,12 @@ btnSettings.addEventListener('click', function() {
 	btnAvatar.setAttribute('class', 'btn btn-primary btn-full btn-mg');
 	btnAvatar.appendChild(document.createTextNode('Cambiar avatar'));
 	avatarInput.addEventListener('change', function() {
-		avatarForm.submit();
+		console.log(avatarInput.files[0].size);
+		if(avatarInput.files[0].size <= 8388608) {
+			avatarForm.submit();
+		} else {
+			console.log('muy grande puta');
+		}
 	});
 	avatarForm.appendChild(btnAvatar);
 
@@ -91,10 +96,6 @@ btnSettings.addEventListener('click', function() {
 		btnDelete.appendChild(document.createTextNode('Confirmar eliminación'));
 		btnDelete.addEventListener('click', function() {
 			deleteForm.submit();
-
-			setTimeout(function() {
-				window.location.href = '/';
-			}, 100);
 		});
 		deleteForm.appendChild(btnDelete);
 	});

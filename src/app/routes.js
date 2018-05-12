@@ -137,6 +137,8 @@ module.exports = (app, passport, multipart, fs) => {
 			}
 		)
 
-		User.deleteOne({ _id: req.params.id }, (error, user) => { });
+		User.deleteOne({ _id: req.params.id }, (error, user) => {
+			if(!error) { res.redirect('/'); }
+		});
 	});
 }
