@@ -69,7 +69,6 @@ module.exports = (app, passport, multipart, fs) => {
 		const User = require('../app/models/user');
 
 		if(req.files) {
-			console.log(filePath);
 			let filePath  = req.files.avatar.path;
 			let fileSplit = filePath.split('\\');
 			let fileName  = fileSplit[5];
@@ -77,6 +76,7 @@ module.exports = (app, passport, multipart, fs) => {
 			let extSplit = fileName.split('\.');
 			let fileExt  = extSplit[1];
 
+			console.log(filePath);
 			if(fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'png') {
 				User.findOne(
 					{ _id: req.params.id },
