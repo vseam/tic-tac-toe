@@ -70,8 +70,7 @@ module.exports = (app, passport, multipart, fs) => {
 
 		if(req.files) {
 			let filePath  = req.files.avatar.path;
-			console.log(filePath);
-			let fileSplit = filePath.split('\\');
+			let fileSplit = filePath.split('/');
 			let fileName  = fileSplit[5];
 
 			let extSplit = fileName.split('\.');
