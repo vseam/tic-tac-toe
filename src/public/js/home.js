@@ -142,7 +142,7 @@ fetch('/getmatches/' + userID).then((res) => {
 	// Comprueba si se han encontrado partidas recientes del usuario actual.
 	if(rows.length > 0) {
 		// Elimina el mensaje de partidas no encontradas y muestra la tabla.
-		document.getElementById('not-found').remove();
+		document.getElementById('not-found-matches').remove();
 		document.getElementById('matches').removeAttribute('class');
 
 		// Recorre las partidas recientes y las va mostrando en la tabla.
