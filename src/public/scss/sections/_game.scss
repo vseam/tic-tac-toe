@@ -18,10 +18,23 @@
 			font-size: 16px;
 			font-weight: 600;
 			margin-bottom: 15px;
-			padding: 16px 35px;
+			padding: 0 35px 0 80px;
+			position: relative;
 			&.hidden { display: none; }
 			&.green { background-color: $light-green; }
 			&.red { background-color: $light-red; }
+			img {
+				border: 2px solid #EEE;
+				border-radius: 100%;
+				position: absolute;
+				left: 35px;
+				top: 11px;
+				width: 34px;
+			}
+			span {
+				display: inline-block;
+				padding: 20px 0;
+			}
 		}
 		#board {
 			display: flex;

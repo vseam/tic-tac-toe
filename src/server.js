@@ -9,7 +9,9 @@ const morgan       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const session      = require('express-session');
+const multipart    = require('connect-multiparty');
 const io           = require('socket.io')(server);
+const fs           = require('fs');
 
 // Conexión con la base de datos MongoDB.
 const { urlDB }    = require('./config/database');
@@ -45,7 +47,7 @@ app.use(flash());
 require('./config/passport')(passport);
 
 // Configuración de las rutas de la aplicación.
-require('./app/routes')(app, passport);
+require('./app/routes')(app, passport, multipart, fs);
 
 // Configuración de la ruta de los ficheros públicos.
 app.use(express.static(path.join(__dirname, 'public')));

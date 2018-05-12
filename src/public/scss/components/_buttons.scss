@@ -26,4 +26,15 @@
 	&:hover { background-color: darken($primary-color, 10%); }
 }
 
-.btn-full { width: 100%; }
+.btn-delete {
+	background-color: #d46255;
+	color: #FFFFFF;
+	&:hover { background-color: darken(#d46255, 10%); }
+}
+
+.btn-full {
+	display: block;
+	width: 100%;
+}
+
+.btn-mg { margin: 0 !important; }

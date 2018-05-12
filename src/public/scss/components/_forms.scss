@@ -1,20 +1,36 @@
 .form-control {
+	border: none;
+	border-radius: $br4;
+	font-weight: 600;
+	margin-bottom: 10px;
+	transition: $trs;
+	padding: 11px 44px;
+	width: 100%;
+	&[name=username] { background-image: url('../images/svg/user.svg'); }
+	&[type=password] { background-image: url('../images/svg/unlock.svg'); }
+}
+
+.fc-dark {
 	background: {
 		color: #5D6871;
 		position: 16px center;
 		repeat: no-repeat;
 		size: 16px;
 	}
-	border: none;
-	border-radius: $br4;
 	color: #B7BBBB;
-	font-weight: 600;
-	margin-bottom: 10px;
-	padding: 11px 44px;
-	transition: $trs;
-	width: 100%;
 	&::placeholder { color: #B7BBBB; }
 	&:focus { background-color: darken(#5D6871, 5%); }
-	&[name=username] { background-image: url('../images/svg/user.svg'); }
-	&[type=password] { background-image: url('../images/svg/unlock.svg'); }
+}
+
+.fc-light {
+	border: 1px solid #CCC;
+	background: {
+		color: #FFFFFF;
+		position: 16px center;
+		repeat: no-repeat;
+		size: 16px;
+	}
+	color: #333;
+	&::placeholder { color: #B7BBBB; }
+	&:focus { border-color: $primary-color; }
 }

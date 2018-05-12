@@ -11,7 +11,8 @@ var hasWon        = false;
 // Emite al servidor que el usuario se ha conectado al juego.
 const userID   = document.getElementById('user-id').value;
 const username = document.getElementById('username').value;
-socket.emit('joinUser', { userID: userID, username: username });
+const avatar   = document.getElementById('avatar').value;
+socket.emit('joinUser', { userID: userID, username: username, avatar: avatar });
 
 // Recibe el evento del servidor que asigna el jugador del usuario.
 socket.on('assignPlayer', function(data) {
@@ -19,8 +20,15 @@ socket.on('assignPlayer', function(data) {
 
 	playerBoolean = data.player;
 
-	// Muestra el nombre del oponente con su color correspondiente.
-	opponent.innerText = data.opponent;
+	// Muestra la imagen y el nombre del oponente con su color correspondiente.
+	let imgOpponent = document.createElement('img');
+	imgOpponent.setAttribute('src', '/images/avatars/' + data.imgOpponent);
+	opponent.appendChild(imgOpponent);
+
+	let txtOpponent = document.createElement('span');
+	txtOpponent.appendChild(document.createTextNode(data.opponent))
+	opponent.appendChild(txtOpponent);
+
 	(!playerBoolean) ? opponent.setAttribute('class', 'opponent green') : opponent.setAttribute('class', 'opponent red');
 });
 

@@ -35,6 +35,7 @@
 	width: 90vw;
 	text-align: center;
 	padding: 24px;
+	position: relative;
 	@include mQuery(500px) { width: 90%; }
 	@include mQuery(584px) { width: 454px; }
 	i {
@@ -43,6 +44,15 @@
 		margin-bottom: 24px;
 		&.won { color: #BDE2AE; }
 		&.lost { color: #E2AEAE; }
+	}
+	i.btn-close {
+		color: #f67575;
+		cursor: pointer;
+		font-size: 24px;
+		margin: 0;
+		position: absolute;
+		top: 10px;
+		right: 10px;
 	}
 	h2 {
 		color: #575757;

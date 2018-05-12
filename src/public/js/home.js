@@ -1,3 +1,109 @@
+const userID  = document.getElementById('user-id').value;
+
+/**
+ * [CONFIGURACIÓN DEL PERFIL].
+ */
+const btnSettings = document.getElementById('open-settings');
+btnSettings.addEventListener('click', function() {
+	let base = document.createElement('div');
+	base.setAttribute('id', 'winSettings');
+	base.setAttribute('class', 'warn');
+
+	let alert = document.createElement('div');
+	alert.setAttribute('id', 'warn-bc');
+	base.appendChild(alert);
+
+	let btnClose = document.createElement('i');
+	btnClose.setAttribute('class', 'fas fa-times-circle btn-close');
+	btnClose.addEventListener('click', function() { fadeOut(base); });
+	alert.appendChild(btnClose);
+
+	let title = document.createElement('h2');
+	title.appendChild(document.createTextNode('Configuración'));
+	alert.appendChild(title);
+
+	// Cambiar avatar del perfil.
+	let avatarForm = document.createElement('form');
+	avatarForm.setAttribute('method', 'post');
+	avatarForm.setAttribute('action', '/user/avatar/' + userID);
+	avatarForm.setAttribute('enctype', 'multipart/form-data');
+	alert.appendChild(avatarForm);
+
+	let avatarInput = document.createElement('input');
+	avatarInput.setAttribute('id', 'avatar');
+	avatarInput.setAttribute('name', 'avatar');
+	avatarInput.setAttribute('type', 'file');
+	avatarInput.setAttribute('style', 'display: none');
+	avatarForm.appendChild(avatarInput);
+
+	let btnAvatar = document.createElement('label');
+	btnAvatar.setAttribute('for', 'avatar');
+	btnAvatar.setAttribute('class', 'btn btn-primary btn-full btn-mg');
+	btnAvatar.appendChild(document.createTextNode('Cambiar avatar'));
+	avatarInput.addEventListener('change', function() {
+		avatarForm.submit();
+	});
+	avatarForm.appendChild(btnAvatar);
+
+	let hr1 = document.createElement('hr');
+	hr1.setAttribute('style', 'margin: 16px 0');
+	alert.appendChild(hr1);
+
+	// Cambiar contraseña de la cuenta.
+	let passwdForm = document.createElement('form');
+	passwdForm.setAttribute('method', 'post');
+	passwdForm.setAttribute('action', '/user/passwd/' + userID);
+	alert.appendChild(passwdForm);
+
+	let passwdInput = document.createElement('input');
+	passwdInput.setAttribute('class', 'form-control fc-light');
+	passwdInput.setAttribute('name', 'passwd');
+	passwdInput.setAttribute('type', 'password');
+	passwdInput.setAttribute('placeholder', 'Nueva contraseña');
+	passwdForm.appendChild(passwdInput);
+
+	let btnPasswd = document.createElement('button');
+	btnPasswd.setAttribute('class', 'btn btn-primary btn-full btn-mg');
+	btnPasswd.appendChild(document.createTextNode('Cambiar contraseña'));
+	btnPasswd.addEventListener('click', function() {
+		passwdForm.submit();
+	});
+	passwdForm.appendChild(btnPasswd);
+
+	let hr2 = document.createElement('hr');
+	hr2.setAttribute('style', 'margin: 12px 0');
+	alert.appendChild(hr2);
+
+	// Eliminar cuenta definitivamente.
+	let deleteForm = document.createElement('form');
+	deleteForm.setAttribute('method', 'post');
+	deleteForm.setAttribute('action', '/user/delete/' + userID);
+	alert.appendChild(deleteForm);
+
+	let btnDelete = document.createElement('button');
+	btnDelete.setAttribute('class', 'btn btn-grey btn-full btn-mg');
+	btnDelete.appendChild(document.createTextNode('Borrar cuenta'));
+	btnDelete.addEventListener('click', function() {
+		this.remove();
+
+		let btnDelete = document.createElement('button');
+		btnDelete.setAttribute('class', 'btn btn-delete btn-full btn-mg');
+		btnDelete.appendChild(document.createTextNode('Confirmar eliminación'));
+		btnDelete.addEventListener('click', function() {
+			deleteForm.submit();
+
+			setTimeout(function() {
+				window.location.href = '/';
+			}, 100);
+		});
+		deleteForm.appendChild(btnDelete);
+	});
+	deleteForm.appendChild(btnDelete);
+
+	document.getElementById('settings').appendChild(base);
+	fadeIn(base);
+});
+
 /**
  * [CÁLCULO DEL RATIO G/P].
  */
@@ -28,7 +134,6 @@ if(wonGames == 0 && lostGames == 0) {
 /**
  * [OBTENCIÓN DE LAS ÚLTIMAS PARTIDAS].
  */
-const userID  = document.getElementById('user-id').value;
 const matches = document.getElementById('matches-body');
 
 fetch('/getmatches/' + userID).then((res) => {
@@ -62,3 +167,18 @@ fetch('/getmatches/' + userID).then((res) => {
 	}
 }).catch(console.log);
 
+// Efecto para mostrar un elemento.
+function fadeIn(element) {
+    setTimeout(function() {
+        element.style.opacity = 1;
+    }, 200);
+}
+
+// Efecto para ocultar un elemento.
+function fadeOut(element) {
+    element.style.opacity = 0;
+
+    setTimeout(function() {
+        element.remove();
+    }, 200);
+}

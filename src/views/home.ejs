@@ -6,10 +6,24 @@
 <body>
 	<% include partials/header %>
 
+	<div id="settings"></div>
+
 	<section id="home" class="separator">
 		<div class="wrapper">
+			<% if(avatarChanged.length > 0) { %>
+				<div class="alert alert-success alert-pa"><%= avatarChanged %></div>
+			<% } %>
+
+			<% if(avatarError.length > 0) { %>
+				<div class="alert alert-danger alert-pa"><%= avatarError %></div>
+			<% } %>
+
+			<% if(passwordChanged.length > 0) { %>
+				<div class="alert alert-success alert-pa"><%= passwordChanged %></div>
+			<% } %>
+
 			<div id="profile">
-				<i id="settings" class="fas fa-cogs"></i>
+				<i id="open-settings" class="fas fa-cogs"></i>
 				<img src="/images/avatars/<%= user.avatar %>" alt="#">
 				<h4><%= user.username %></h4>
 			</div>
@@ -42,7 +56,7 @@
 			<div id="last-games">
 				<h2>Últimas partidas</h2>
 
-				<p id="not-found">No se han encontrado partidas recientes</p>
+				<p id="not-found-matches">No se han encontrado partidas recientes</p>
 				<table id="matches" class="hidden">
 					<thead>
 						<tr>

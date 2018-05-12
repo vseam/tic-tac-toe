@@ -1,3 +1,6 @@
+#settings {
+	hr { border: 1px solid #EEE; }
+}
 #home {
 	max-height: calc(100% - 20vw);
 	overflow: auto;
@@ -24,7 +27,7 @@
 			padding: 10px;
 			position: relative;
 			width: 100%;
-			#settings {
+			#open-settings {
 				color: #FFFFFF;
 				cursor: pointer;
 				font-size: 20px;
@@ -118,10 +121,11 @@
 			}
 		}
 		#last-games {
-			#not-found {
+			#not-found-matches {
 				background-color: $dark-color;
 				border-radius: $br12;
 				color: $light-red;
+				text-align: center;
 				font: {
 					size: 14px;
 					weight: 600;

@@ -33,6 +33,7 @@ module.exports = (io) => {
 			// Asigna el nombre de usuario al socket.
 			socket.userID   = data.userID;
 			socket.username = data.username;
+			socket.avatar   = data.avatar;
 
 			// Incrementa el contador de usuarios conectados en este momento.
 			usersOnline++;
@@ -62,8 +63,16 @@ module.exports = (io) => {
 				waitingList.splice(0, 2);
 
 				// Emite el evento que asigna a cada jugador de la partida.
-				io.sockets.connected[roomsList[(roomsList.length - 1)].player1.id].emit('assignPlayer', { player: true, opponent: roomsList[(roomsList.length - 1)].player2.username });
-				io.sockets.connected[roomsList[(roomsList.length - 1)].player2.id].emit('assignPlayer', { player: false, opponent: roomsList[(roomsList.length - 1)].player1.username });
+				io.sockets.connected[roomsList[(roomsList.length - 1)].player1.id].emit('assignPlayer', {
+					player: true,
+					opponent: roomsList[(roomsList.length - 1)].player2.username,
+					imgOpponent: roomsList[(roomsList.length - 1)].player2.avatar
+				});
+				io.sockets.connected[roomsList[(roomsList.length - 1)].player2.id].emit('assignPlayer', {
+					player: false,
+					opponent: roomsList[(roomsList.length - 1)].player1.username,
+					imgOpponent: roomsList[(roomsList.length - 1)].player1.avatar
+				});
 
 				// Emite el evento a la sala de juego para empezar la partida.
 				io.to(roomNumber).emit('startGame', currentPlayer);
